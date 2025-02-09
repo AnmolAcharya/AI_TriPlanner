@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'
+
 
 function HeroSection() {
   const [destination, setDestination] = useState('');
@@ -13,7 +15,7 @@ function HeroSection() {
         
         <div className="search-container">
           <div className="search-box">
-            <input
+            {/* <input
               type="text"
               placeholder="Where do you want to go?"
               value={destination}
@@ -26,8 +28,12 @@ function HeroSection() {
               value={dates}
               onChange={(e) => setDates(e.target.value)}
               className="date-input"
-            />
-            <button className="search-button">Plan My Trip</button>
+            /> */}
+
+            <Link to="/create-trip">
+              <button className="search-button">Plan My Trip</button>
+            </Link> 
+            {/* Crucial part of rendering into another page or tab screen for the planning of the trip! */}
           </div>
         </div>
       </div>
