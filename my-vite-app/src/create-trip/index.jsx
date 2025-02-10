@@ -3,6 +3,7 @@ import "./create-trip.css";
 import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; // Import Toastify CSS
+import { chatSession } from "../service/AIMODEL";
 
 function CreateTrip() {
   const [destination, setDestination] = useState("");
@@ -25,6 +26,7 @@ function CreateTrip() {
 
   // 🔹 Function to validate & generate the trip
   const onGenerateTrip = () => {
+    {
     if (!formData?.destination) {
       toast.error("Please select a destination! 📍");
       return;
@@ -48,8 +50,20 @@ function CreateTrip() {
 
     // If all fields are filled, log the data
     toast.success("Trip generated successfully! 🎉");
-    console.log("Generating trip with:", formData);
-  };
+    return
+    // console.log("Generating trip with:", formData);
+  }
+  const FINAL_PROMPT=AI_PROMPT
+  .replace('{location}',formData?.destination)
+  .replace('{totalDays}',formData?.noOfDays)
+  .replace('{traveler}',formData?.traveler)
+  .replace('{budget}',formData?.budget)
+  
+  console.log(FINAL_PROMPT);
+
+  // const result=await chatSession.sendMessage(FINAL_PROMPT);
+  // console.log(result?.response?.text());
+};
 
   return (
     <div className="create-trip-container">
@@ -158,3 +172,5 @@ function CreateTrip() {
 }
 
 export default CreateTrip;
+
+//export const AI_PROMPT="Generate Travel Plan for Location: {location}"
