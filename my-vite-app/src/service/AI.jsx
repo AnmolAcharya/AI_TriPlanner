@@ -58,6 +58,9 @@ export const getTripPlan = async (formData) => {
 };
 
 
+
+
+///the older code snippets that were done before the correct AI api integration 
 // import { GoogleGenerativeAI } from "@google/generative-ai";
 
 // const apiKey = import.meta.env.VITE_GOOGLE_GEMINI_AI_API_KEY;
