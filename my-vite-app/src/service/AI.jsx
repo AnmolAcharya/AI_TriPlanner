@@ -61,6 +61,8 @@ export const getTripPlan = async (formData) => {
 
 
 ///the older code snippets that were done before the correct AI api integration 
+
+//the yt version is easier and so try again to incorporate that as making this into frontend will be hard ""
 // import { GoogleGenerativeAI } from "@google/generative-ai";
 
 // const apiKey = import.meta.env.VITE_GOOGLE_GEMINI_AI_API_KEY;
