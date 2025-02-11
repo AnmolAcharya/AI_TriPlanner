@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import "./create-trip.css";
 import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css"; // Import Toastify CSS
-import { chatSession } from "../service/AIMODEL";
+import "react-toastify/dist/ReactToastify.css"; 
+
+import { getTripPlan } from "../service/AI"; // ✅ Import AI API function
+import { AI_PROMPT } from "../service/AIPrompt"; // ✅ Import AI Prompt Template
 
 function CreateTrip() {
   const [destination, setDestination] = useState("");
@@ -21,12 +23,11 @@ function CreateTrip() {
   };
 
   useEffect(() => {
-    console.log(formData);
+    console.log("📝 Form Data Updated:", formData);
   }, [formData]);
 
   // 🔹 Function to validate & generate the trip
-  const onGenerateTrip = () => {
-    {
+  const onGenerateTrip = async () => {
     if (!formData?.destination) {
       toast.error("Please select a destination! 📍");
       return;
@@ -48,22 +49,18 @@ function CreateTrip() {
       return;
     }
 
-    // If all fields are filled, log the data
     toast.success("Trip generated successfully! 🎉");
-    return
-    // console.log("Generating trip with:", formData);
-  }
-  const FINAL_PROMPT=AI_PROMPT
-  .replace('{location}',formData?.destination)
-  .replace('{totalDays}',formData?.noOfDays)
-  .replace('{traveler}',formData?.traveler)
-  .replace('{budget}',formData?.budget)
-  
-  console.log(FINAL_PROMPT);
 
-  // const result=await chatSession.sendMessage(FINAL_PROMPT);
-  // console.log(result?.response?.text());
-};
+    console.log("🚀 Sending Data to AI Model:", formData);
+
+    const response = await getTripPlan(formData);
+
+    if (response?.error) {
+      toast.error(response.error);
+    } else {
+      console.log("🌍 Generated Trip Plan:", response);
+    }
+  };
 
   return (
     <div className="create-trip-container">
@@ -172,5 +169,3 @@ function CreateTrip() {
 }
 
 export default CreateTrip;
-
-//export const AI_PROMPT="Generate Travel Plan for Location: {location}"
