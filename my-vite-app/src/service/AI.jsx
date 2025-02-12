@@ -58,7 +58,7 @@ export const getTripPlan = async (formData) => {
 };
 
 
-
+//tues - skipped code to start tomorrow well
 
 ///the older code snippets that were done before the correct AI api integration 
 
