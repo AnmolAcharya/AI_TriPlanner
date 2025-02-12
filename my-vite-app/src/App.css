@@ -190,7 +190,7 @@ body {
 
 /* Hero Section */
 .hero-section {
-  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/highq.jpg');
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/highq.jpg'); /*Newer higher res image addedd*/
   background-size: cover;
   background-position: center;
   min-height: 90vh;
