@@ -102,7 +102,7 @@ body {
 }
 
 .logo img {
-  height: 40px; /* Adjust as needed */
+  height: 40px; /* not working as of now */ 
   margin-right: 10px;
 }
 
