@@ -27,7 +27,7 @@ function CreateTrip() {
     }
   }, []);
 
-  // 🔹 Google One-Tap Login (Auto-Login)
+  // 🔹 Google One-Tap Login (Auto-Login) -> Google authentication 2/12/25
   useGoogleOneTapLogin({
     onSuccess: (credentialResponse) => {
       const decodedUser = jwtDecode(credentialResponse.credential);
