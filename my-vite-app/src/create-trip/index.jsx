@@ -84,7 +84,7 @@ function CreateTrip() {
       return;
     }
 
-    toast.success("Trip generated successfully! 🎉");
+    toast.success(" (LOADING!) Your Trip is generated successfully! 🎉");
     console.log("🚀 Sending Data to AI Model:", formData);
 
     await getTripPlan(formData, navigate);
