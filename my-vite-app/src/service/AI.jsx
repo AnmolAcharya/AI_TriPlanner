@@ -2,7 +2,7 @@ import { useState } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { AI_PROMPT } from "./AIPrompt";
 import { doc, setDoc } from "firebase/firestore";
-import { db } from "./FirebaseConfig"; // ✅ Ensure `db` is imported
+import { db } from "./FirebaseConfig.jsx"; // ✅ Ensure `db` is imported
 
 const apiKey = import.meta.env.VITE_GOOGLE_GEMINI_AI_API_KEY;
 const genAI = new GoogleGenerativeAI(apiKey);
@@ -90,7 +90,7 @@ const SaveAiTrip = async (formData, TripData) => {
 };
 
 
-/////////////////////////firebase contents 
+/////////////////////////firebase contents  //feb14 commits 
 
 // import { GoogleGenerativeAI } from "@google/generative-ai";
 // import { AI_PROMPT } from "./AIPrompt"; // ✅ Fixed import path
