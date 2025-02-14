@@ -90,7 +90,7 @@ const SaveAiTrip = async (formData, TripData) => {
 };
 
 
-/////////////////////////firebase contents  //feb14 commits - valentines day big dawg 
+/////////////////////////firebase contents  //feb14 commit - start of creating the trip details page>> the
 
 // import { GoogleGenerativeAI } from "@google/generative-ai";
 // import { AI_PROMPT } from "./AIPrompt"; // ✅ Fixed import path
