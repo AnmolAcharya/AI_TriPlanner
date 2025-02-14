@@ -90,7 +90,8 @@ const SaveAiTrip = async (formData, TripData) => {
 };
 
 
-/////////////////////////firebase contents  //feb14 commit - start of creating the trip details page>> the
+/////////////////////////firebase contents  //feb14 commit - start of creating the trip details page>> 
+// the main web ai part of the project to display the ai generated trips, and itineries for user !
 
 // import { GoogleGenerativeAI } from "@google/generative-ai";
 // import { AI_PROMPT } from "./AIPrompt"; // ✅ Fixed import path
