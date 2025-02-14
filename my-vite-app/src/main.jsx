@@ -28,7 +28,7 @@ const router=createBrowserRouter([
   },
 
   {
-    path: '/view-trip/:tripId',
+    path: '/view-trip/:tripId', //placing the route
     element: (
       <>
     {/* <Navbar/> */}

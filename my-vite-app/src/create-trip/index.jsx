@@ -8,8 +8,10 @@ import { jwtDecode } from "jwt-decode"; // ✅ To decode Google token
 
 import { getTripPlan } from "../service/AI";
 import { AI_PROMPT } from "../service/AIPrompt";
+import { useNavigate } from "react-router-dom";
 
 function CreateTrip() {
+  const navigate = useNavigate(); //initialized navigate inside the components
   const [destination, setDestination] = useState("");
   const [days, setDays] = useState("");
   const [budget, setBudget] = useState("");
@@ -18,6 +20,9 @@ function CreateTrip() {
   const [formData, setFormData] = useState({});
   const [openDialog, setOpenDialog] = useState(false);
   const [user, setUser] = useState(null); // ✅ Store logged-in user data
+
+
+  // const router=useNavigate(); // for the dynamic view trip
 
   // 🔹 Check if user is already logged in (From Local Storage)
   useEffect(() => {
@@ -82,13 +87,15 @@ function CreateTrip() {
     toast.success("Trip generated successfully! 🎉");
     console.log("🚀 Sending Data to AI Model:", formData);
 
-    const response = await getTripPlan(formData);
+    await getTripPlan(formData, navigate);
 
-    if (response?.error) {
-      toast.error(response.error);
-    } else {
-      console.log("🌍 Generated Trip Plan:", response);
-    }
+    // const response = await getTripPlan(formData, navigate); //these changes made to fix view-trip bug
+ 
+    // if (response?.error) {
+    //   toast.error(response.error);
+    // } else {
+    //   console.log("🌍 Generated Trip Plan:", response);
+    // }
   };
 
   return (

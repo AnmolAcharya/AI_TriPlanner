@@ -3,6 +3,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import { AI_PROMPT } from "./AIPrompt";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "./FirebaseConfig.jsx"; // ✅ Ensure `db` is imported
+import { useNavigate } from "react-router-dom";
 
 const apiKey = import.meta.env.VITE_GOOGLE_GEMINI_AI_API_KEY;
 const genAI = new GoogleGenerativeAI(apiKey);
@@ -34,7 +35,7 @@ export const generatePrompt = (formData) => {
 };
 
 // 🔹 Function to send the generated prompt to the AI model
-export const getTripPlan = async (formData) => {
+export const getTripPlan = async (formData, navigate) => {
   const finalPrompt = generatePrompt(formData);
   
   if (!finalPrompt) {
@@ -55,7 +56,7 @@ export const getTripPlan = async (formData) => {
     console.log("🤖 AI Response: ", responseText);
 
     // ✅ Save the AI-generated trip plan in Firebase
-    await SaveAiTrip(formData, responseText);
+    await SaveAiTrip(formData, responseText, navigate);
 
     return responseText;
   } catch (error) {
@@ -65,7 +66,7 @@ export const getTripPlan = async (formData) => {
 };
 
 // 🔹 Function to Save AI-generated Trip to Firebase
-const SaveAiTrip = async (formData, TripData) => {
+const SaveAiTrip = async (formData, TripData, navigate) => {
   try {
     const user = JSON.parse(localStorage.getItem("user"));
     if (!user?.email) {
@@ -83,7 +84,23 @@ const SaveAiTrip = async (formData, TripData) => {
       createdAt: new Date(),
     });
 
-    console.log("✅ Trip saved to Firestore:", docId);
+    console.log("Trip saved to Firestore:", docId);
+    navigate(`/view-trip/${docId}`)
+
+    // // navigate('/view-trip/' +docId) react hooks can only be used inside react functional components 
+    // console.log("✅ Trip saved to Firestore:", docId);
+
+    // const tripUrl = `${window.location.origin}/view-trip/${docId}`;
+    // console.log("🌍 Opening new tab:", tripUrl);
+
+    // // ✅ Open in new tab with security headers
+    // const newTab = window.open(tripUrl, "_blank", "noopener,noreferrer");
+
+    // // 🔹 If pop-up is blocked, alert the user
+    // if (!newTab || newTab.closed || typeof newTab.closed === "undefined") {
+    //   alert("Pop-up blocked! Please allow pop-ups for this site.");
+    // }
+    
   } catch (error) {
     console.error("❌ Error saving trip:", error);
   }
