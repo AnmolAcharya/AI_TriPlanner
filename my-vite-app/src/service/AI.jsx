@@ -74,7 +74,7 @@ const SaveAiTrip = async (formData, TripData, navigate) => {
       return;
     }
 
-    const docId = Date.now().toString(); // Unique ID for each trip
+    const docId = Date.now().toString(); // Unique ID for each trip //helps in routing as well
 
     await setDoc(doc(db, "AITrips", docId), {
       userSelection: formData,
@@ -85,7 +85,9 @@ const SaveAiTrip = async (formData, TripData, navigate) => {
     });
 
     console.log("Trip saved to Firestore:", docId);
-    navigate(`/view-trip/${docId}`)
+    navigate(`/view-trip/${docId}`)   //connects out create trips navigation to AI.jsx and lead to dynamic routing 
+
+//////////////////////////////Alternative approach try out : .....................
 
     // // navigate('/view-trip/' +docId) react hooks can only be used inside react functional components 
     // console.log("✅ Trip saved to Firestore:", docId);

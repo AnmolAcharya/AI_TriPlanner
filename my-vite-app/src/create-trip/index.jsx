@@ -92,7 +92,7 @@ function CreateTrip() {
     // const response = await getTripPlan(formData, navigate); //these changes made to fix view-trip bug
  
     // if (response?.error) {
-    //   toast.error(response.error);
+    //   toast.error(response.error); //show any errors if they happen 
     // } else {
     //   console.log("🌍 Generated Trip Plan:", response);
     // }
