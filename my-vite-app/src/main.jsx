@@ -9,6 +9,7 @@ import CreateTrip from './create-trip/index.jsx'
 import Navbar from './components/Navbar.jsx'
 
 import { GoogleOAuthProvider } from '@react-oauth/google';
+import ViewTrip from './view-trip/display.jsx'
 
 
 const router=createBrowserRouter([
@@ -23,8 +24,18 @@ const router=createBrowserRouter([
         <Navbar/>
         <CreateTrip/>
       </>
-
   )
+  },
+
+  {
+    path: '/view-trip/:tripId',
+    element: (
+      <>
+    {/* <Navbar/> */}
+    <ViewTrip/>
+    </>
+
+    )
   }
 
 ])
