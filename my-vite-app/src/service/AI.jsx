@@ -110,7 +110,7 @@ const SaveAiTrip = async (formData, TripData, navigate) => {
 
 
 /////////////////////////firebase contents  '
-//Feb 15 - going further on view-trip display 
+//Feb 15 - going further on view-trip display + till now showing up in firebase and in console the ai gemini api keys 
 // //feb14 commit - start of creating the trip details page>> 
 // the main web ai part of the project to display the ai generated trips, and itineries for user !
 
