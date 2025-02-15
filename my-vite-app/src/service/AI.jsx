@@ -179,3 +179,4 @@ const SaveAiTrip = async (formData, TripData, navigate) => {
 //     return { error: "Failed to generate trip. Please try again later." };
 //   }
 // };
+//////////////////////////////////////////////////////////////////////////////
