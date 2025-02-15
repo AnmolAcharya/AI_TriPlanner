@@ -87,7 +87,7 @@ const SaveAiTrip = async (formData, TripData, navigate) => {
     console.log("Trip saved to Firestore:", docId);
     navigate(`/view-trip/${docId}`)   //connects out create trips navigation to AI.jsx and lead to dynamic routing 
 
-//////////////////////////////Alternative approach try out : .....................
+//////////////////////////////Alternative approach try out : ..................... without react router 
 
     // // navigate('/view-trip/' +docId) react hooks can only be used inside react functional components 
     // console.log("✅ Trip saved to Firestore:", docId);
@@ -109,7 +109,9 @@ const SaveAiTrip = async (formData, TripData, navigate) => {
 };
 
 
-/////////////////////////firebase contents  //feb14 commit - start of creating the trip details page>> 
+/////////////////////////firebase contents  '
+//Feb 15 - going further on view-trip display 
+// //feb14 commit - start of creating the trip details page>> 
 // the main web ai part of the project to display the ai generated trips, and itineries for user !
 
 // import { GoogleGenerativeAI } from "@google/generative-ai";
