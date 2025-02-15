@@ -1,8 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { db } from '../service/FirebaseConfig';
 import { doc, getDoc } from 'firebase/firestore';
+import About from "./components/About";
 
 function ViewTrip() {
     const { tripId } = useParams();
@@ -40,9 +41,14 @@ function ViewTrip() {
         <div>Viewing Trip ID: {tripId}
 
         {/*Information section/component*/}
+        <About trip={trip} />
+
         {/*Recommended Hotels*/}
+
         {/*Itineries 1/2/3/....*/}
+
         {/*Maps..........if needed */}
+
         {/*Footer */}
         
         

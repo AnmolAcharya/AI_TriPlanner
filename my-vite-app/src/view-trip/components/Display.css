@@ -1,0 +1,13 @@
+.about-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden; /* Prevents overflow issues */
+}
+
+.about-image {
+    width: 100%;  /* Stretches fully */
+    height: auto; /* Maintains aspect ratio */
+    max-height: 350px; /* Adjust this value as needed */
+    object-fit: contain; /* Ensures the full image is visible */
+}
