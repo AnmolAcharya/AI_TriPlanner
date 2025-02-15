@@ -6,6 +6,7 @@ import { doc, getDoc } from 'firebase/firestore';
 
 function ViewTrip() {
     const { tripId } = useParams();
+    const [trip, setTrip] = useState([])
 
     useEffect(() => {
         const fetchTripData = async () => {
@@ -28,6 +29,7 @@ function ViewTrip() {
 
         if (docSnap.exists()) {
             console.log("Document:", docSnap.data());
+            setTrip(docSnap.data())
         } else {
             console.log("No such document");
             toast('No trip found!');
@@ -35,7 +37,16 @@ function ViewTrip() {
     };
 
     return (
-        <div>Viewing Trip ID: {tripId}</div>
+        <div>Viewing Trip ID: {tripId}
+
+        {/*Information section/component*/}
+        {/*Recommended Hotels*/}
+        {/*Itineries 1/2/3/....*/}
+        {/*Maps..........if needed */}
+        {/*Footer */}
+        
+        
+        </div>
     );
 }
 
