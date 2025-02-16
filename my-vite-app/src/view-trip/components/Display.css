@@ -6,8 +6,8 @@
 }
 
 .about-image {
-    width: 100%;  /* Stretches fully */
+    width: 100%;  /* Stretches fully */ 
     height: auto; /* Maintains aspect ratio */
     max-height: 350px; /* Adjust this value as needed */
-    object-fit: contain; /* Ensures the full image is visible */
+    object-fit: contain; /*Ensures the full image is visible*/
 }

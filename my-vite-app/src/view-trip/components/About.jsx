@@ -6,7 +6,7 @@ function About({ trip }) {
     <div className="about-container">
       <img src="/placeholder.jpg" alt="Trip" className="about-image" />
       <div>
-      <h2>{trip?.userSelection?.destination}</h2>
+      <h2>{trip?.userSelection?.destination}</h2> {/*check from the console and placed here accordingly!*/}
       </div>
 
     </div>
