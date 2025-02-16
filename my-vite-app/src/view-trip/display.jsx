@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { db } from '../service/FirebaseConfig';
 import { doc, getDoc } from 'firebase/firestore';
 import About from "./components/About";
+import Hotels from "./components/Hotels";
 
 function ViewTrip() {
     const { tripId } = useParams();
@@ -18,24 +19,38 @@ function ViewTrip() {
         fetchTripData();
     }, [tripId]);
 
-    // Used to get trip information from Firebase 
+
     const GetTripData = async () => {
-        // if (!tripId) {
-        //     toast('Invalid trip ID!');
-        //     return;
-        // }
-
-        const docRef = doc(db, 'AITrips', tripId); // Read data
+        const docRef = doc(db, 'AITrips', tripId);
         const docSnap = await getDoc(docRef);
-
+    
         if (docSnap.exists()) {
-            console.log("Document:", docSnap.data());
-            setTrip(docSnap.data())
+            let tripData = docSnap.data();
+            console.log("🔥 Firestore Data (Raw):", tripData);
+    
+            // If tripData is stored as a string, parse it dynamically
+            if (typeof tripData.tripData === "string") {
+                try {
+                    tripData.tripData = JSON.parse(tripData.tripData);
+                } catch (error) {
+                    console.error("❌ Error parsing tripData:", error);
+                    return;
+                }
+            }
+    
+            console.log("✅ Parsed tripData:", tripData);
+            console.log("🔑 Available keys in tripData:", Object.keys(tripData.tripData));
+    
+            setTrip(tripData);
         } else {
-            console.log("No such document");
+            console.log("❌ No such document found");
             toast('No trip found!');
         }
     };
+    
+    
+    
+    
 
     return (
         <div>Viewing Trip ID: {tripId}
@@ -44,6 +59,7 @@ function ViewTrip() {
         <About trip={trip} />
 
         {/*Recommended Hotels*/}
+        <Hotels trip={trip}/>
 
         {/*Itineries 1/2/3/....*/}
 
