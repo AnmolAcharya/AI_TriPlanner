@@ -1,4 +1,5 @@
 import React from 'react';
+import './Display.css';
 
 function Hotels({ trip }) {
     console.log("🔍 Full tripData:", trip?.tripData);
@@ -9,29 +10,28 @@ function Hotels({ trip }) {
     const hotels = trip?.tripData?.travelPlan?.hotels || [];
 
     return (
-        <div>
-            <h2>Hotel Recommendations</h2>
+        <div className="hotels-container">
+            <h2 className="hotels-title">Hotel Recommendations</h2>
 
-            <div>
+            <div className="hotels-grid">
                 {hotels.length > 0 ? (
                     hotels.map((item, index) => {
-                        console.log(`📸 Hotel ${index} Data:`, item); // Log each hotel's data
-                        
+                        console.log(`🏨 Hotel ${index} Name: ${item.name}, Price: ${item.price}`);
+
                         return (
-                            <div key={index} style={{ border: "1px solid #ddd", padding: "10px", marginBottom: "10px", borderRadius: "8px" }}>
-                                {/* Hotel Image */}
+                            <div key={index} className="hotel-card">
+                                {/* Common Hotel Image */}
                                 <img 
-                                    src={item.image || "/highq.jpg"}  
-                                    alt={item.name || `Hotel ${index}`} 
-                                    style={{ width: "250px", height: "150px", objectFit: "cover", borderRadius: "8px" }} 
-                                    onError={(e) => { e.target.src = "/highq.jpg"; }} // Fallback if image is broken
+                                    src="/hotel.avif"  
+                                    alt={`Hotel ${index}`} 
+                                    className="hotel-image"
                                 />
 
-                                {/* Hotel Name */}
-                                <h3 style={{ marginTop: "10px" }}>{item.name || `Hotel ${index}`}</h3>
-
-                                {/* Hotel Price */}
-                                <p><strong>Price:</strong> {item.price || "N/A"}</p>
+                                {/* Hotel Details */}
+                                <div className="hotel-details">
+                                    <h3 className="hotel-name">{item.name || `Hotel ${index}`}</h3>
+                                    <p className="hotel-price"><strong>Price:</strong> {item.price || "N/A"}</p>
+                                </div>
                             </div>
                         );
                     })
