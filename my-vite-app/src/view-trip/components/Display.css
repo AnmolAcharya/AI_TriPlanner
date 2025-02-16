@@ -21,7 +21,7 @@
 .about-details {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-evenly; /*better look and stance*/
     align-items: center;
     gap: 15px;
     padding: 25px;
