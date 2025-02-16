@@ -1,14 +1,23 @@
 import React from 'react';
-import './Display.css'; // Import the CSS file
+import './Display.css';
 
 function About({ trip }) {
   return (
     <div className="about-container">
-      <img src="/placeholder.jpg" alt="Trip" className="about-image" />
-      <div>
-      <h2>{trip?.userSelection?.destination}</h2> {/*check from the console and placed here accordingly!*/}
+      {/* Banner Image */}
+      <img src={trip?.userSelection?.imageURL || "/placeholder.jpg"} alt="Trip" className="about-banner" />
+
+      {/* Destination Name */}
+      <div className="destination-box">
+        {trip?.userSelection?.destination || "Destination"}
       </div>
 
+      {/* Trip Details */}
+      <div className="about-details">
+        <div className="detail-box">{trip?.userSelection?.noOfDays || "Days"} Days</div>
+        <div className="detail-box">{trip?.userSelection?.budget || "Budget"}</div>
+        <div className="detail-box">{trip?.userSelection?.travelWith || "Travel With"}</div>
+      </div>
     </div>
   );
 }
