@@ -9,7 +9,7 @@ function About({ trip }) {
 
       {/* Destination Name */}
       <div className="destination-box">
-        {trip?.userSelection?.destination || "Destination"}
+        {trip?.userSelection?.destination || "Destination"} {/*Show the destination */}
       </div>
 
       {/* Trip Details */}
