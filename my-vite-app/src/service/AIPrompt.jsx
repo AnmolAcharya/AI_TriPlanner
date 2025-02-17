@@ -34,12 +34,8 @@ Ensure all responses are **always formatted exactly as above**. Do NOT return "t
 `;
 
 
-
-
-
-
-
-
+// Older prompt -> Interfered with the firebase/firestore database 
+// --------------> some followed correct structure whereas others did not causing lack of display of info (hotels/itineries...) 
 
 // export const AI_PROMPT = `Generate a travel plan for location: {location}, 
 // for {totalDays} days for a {traveler} with a {budget} budget. 
