@@ -1,8 +1,8 @@
 import React from 'react';
 import './Display.css';
 
-function Hotels({ trip }) {
-    console.log("🔍 Full tripData:", trip?.tripData);
+function Hotels({ trip }) { 
+    console.log("🔍 Full tripData:", trip?.tripData); //works one-twice and doesn't work after that
     console.log("📂 Checking tripData.travelPlan:", trip?.tripData?.travelPlan);
     console.log("🏨 Checking hotels in travelPlan:", trip?.tripData?.travelPlan?.hotels);
 
