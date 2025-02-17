@@ -1,73 +1,60 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import { db } from '../service/FirebaseConfig';
-import { doc, getDoc } from 'firebase/firestore';
+import { db } from "../service/FirebaseConfig";
+import { doc, getDoc } from "firebase/firestore";
 import About from "./components/About";
 import Hotels from "./components/Hotels";
+import Itinerary from "./components/Itinery";
 
 function ViewTrip() {
     const { tripId } = useParams();
-    const [trip, setTrip] = useState([])
+    const [trip, setTrip] = useState(null); // 🔹 Initialize as null (not an array)
 
     useEffect(() => {
         const fetchTripData = async () => {
-            if (tripId) {
-                await GetTripData();
+            if (!tripId) {
+                console.log("❌ No tripId found! Cannot fetch trip data.");
+                return;
+            }
+
+            console.log(`📡 Fetching trip data for tripId: ${tripId}`);
+            const docRef = doc(db, "AITrips", tripId);
+            const docSnap = await getDoc(docRef);
+
+            if (docSnap.exists()) {
+                const data = docSnap.data();
+                console.log("✅ Successfully fetched tripData:", data);
+                setTrip(data); // 🔹 No need to parse JSON anymore!
+            } else {
+                console.log("❌ No such document in Firestore");
+                toast("No trip found!");
             }
         };
+
         fetchTripData();
     }, [tripId]);
 
-
-    const GetTripData = async () => {
-        const docRef = doc(db, 'AITrips', tripId);
-        const docSnap = await getDoc(docRef);
-    
-        if (docSnap.exists()) {
-            let tripData = docSnap.data();
-            console.log("🔥 Firestore Data (Raw):", tripData);
-    
-            // If tripData is stored as a string, parse it dynamically
-            if (typeof tripData.tripData === "string") {
-                try {
-                    tripData.tripData = JSON.parse(tripData.tripData);
-                } catch (error) {
-                    console.error("❌ Error parsing tripData:", error);
-                    return;
-                }
-            }
-    
-            console.log("✅ Parsed tripData:", tripData);
-            console.log("🔑 Available keys in tripData:", Object.keys(tripData.tripData));
-    
-            setTrip(tripData);
-        } else {
-            console.log("❌ No such document found");
-            toast('No trip found!');
-        }
-    };
-    
-    
-    
-    
+    if (!trip) {
+        return <p>Loading trip details...</p>;
+    }
 
     return (
-        <div>Viewing Trip ID: {tripId}
+        <div>
+            {/* <h2>Viewing Trip ID: {tripId}</h2> */}
 
-        {/*Information section/component*/}
-        <About trip={trip} />
+            {/* Destination & Travel Details */}
+            <About trip={trip} />
 
-        {/*Recommended Hotels*/}
-        <Hotels trip={trip}/>
+            {/* Hotel Recommendations */}
+            <Hotels trip={trip} />
 
-        {/*Itineries 1/2/3/....*/}
+            {/* Future components can be added below */}
+            {/* - Itinerary */}
 
-        {/*Maps..........if needed */}
-
-        {/*Footer */}
-        
-        
+            <Itinerary trip={trip} />
+            {/* - Maps (if needed) */}
+            {/* - Footer */}
         </div>
     );
 }

@@ -78,7 +78,7 @@ const SaveAiTrip = async (formData, TripData, navigate) => {
 
     await setDoc(doc(db, "AITrips", docId), {
       userSelection: formData,
-      tripData: TripData,
+      tripData: JSON.parse(TripData),
       userEmail: user.email,
       id: docId,
       createdAt: new Date(),
@@ -86,6 +86,11 @@ const SaveAiTrip = async (formData, TripData, navigate) => {
 
     console.log("Trip saved to Firestore:", docId);
     navigate(`/view-trip/${docId}`)   //connects out create trips navigation to AI.jsx and lead to dynamic routing 
+
+      } catch (error) {
+    console.error("❌ Error saving trip:", error);
+  }
+};
 
 //////////////////////////////Alternative approach try out : ..................... without react router 
 
@@ -103,10 +108,10 @@ const SaveAiTrip = async (formData, TripData, navigate) => {
     //   alert("Pop-up blocked! Please allow pop-ups for this site.");
     // }
     
-  } catch (error) {
-    console.error("❌ Error saving trip:", error);
-  }
-};
+//   } catch (error) {
+//     console.error("❌ Error saving trip:", error);
+//   }
+// };
 
 
 /////////////////////////firebase contents  '
