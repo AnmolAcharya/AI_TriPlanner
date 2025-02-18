@@ -17,10 +17,10 @@ function Recommendation() {
             </div>
           </div>
           <div className="hotel-card">
-            <img src="/london.jpg" alt="Luxury Hotel" />
+            <img src="/londonbridge.jpg" alt="Luxury Hotel" />
             <div className="hotel-info">
-              <h3>The Wynn Las Vegas</h3>
-              <p className="location">Las Vegas, NV, USA</p>
+              <h3>The London Bridge</h3>
+              <p className="location">United Kingdom, Europe</p>
               <div className="hotel-details">
                 <span className="price">$300-$600 per night</span>
                 <span className="rating">⭐ 5.0</span>
@@ -28,10 +28,87 @@ function Recommendation() {
             </div>
           </div>
           <div className="hotel-card">
-            <img src="/Santorini.jpg" alt="Luxury Hotel" />
+            <img src="/santorinii.jpg" alt="Luxury Hotel" />
             <div className="hotel-info">
-              <h3>The Cosmopolitan</h3>
-              <p className="location">Las Vegas, NV, USA</p>
+              <h3>Santoniri</h3>
+              <p className="location">Greece, Europe</p>
+              <div className="hotel-details">
+                <span className="price">$250-$500 per night</span>
+                <span className="rating">⭐ 4.8</span>
+              </div>
+            </div>
+          </div>
+          <div className="hotel-card">
+            <img src="/finland.avif" alt="Luxury Hotel" />
+            <div className="hotel-info">
+              <h3>Aurora</h3>
+              <p className="location">Finland, Europe</p>
+              <div className="hotel-details">
+                <span className="price">$250-$500 per night</span>
+                <span className="rating">⭐ 4.8</span>
+              </div>
+            </div>
+          </div>
+          <div className="hotel-card">
+            <img src="/bahamas.jpg" alt="Luxury Hotel" />
+            <div className="hotel-info">
+              <h3>Bahamas</h3>
+              <p className="location">Bahamas, Cariibean</p>
+              <div className="hotel-details">
+                <span className="price">$250-$500 per night</span>
+                <span className="rating">⭐ 4.8</span>
+              </div>
+            </div>
+          </div>
+          <div className="hotel-card">
+            <img src="/annapurna.jpg" alt="Luxury Hotel" />
+            <div className="hotel-info">
+              <h3>Annapurna Mountain</h3>
+              <p className="location">Pokhara, Nepal</p>
+              <div className="hotel-details">
+                <span className="price">$250-$500 per night</span>
+                <span className="rating">⭐ 4.8</span>
+              </div>
+            </div>
+          </div>
+          <div className="hotel-card">
+            <img src="/africa.jpg" alt="Luxury Hotel" />
+            <div className="hotel-info">
+              <h3>Mount Kilimanjaro</h3>
+              <p className="location">Tanzania, Africa</p>
+              <div className="hotel-details">
+                <span className="price">$250-$500 per night</span>
+                <span className="rating">⭐ 4.8</span>
+              </div>
+            </div>
+          </div>
+          <div className="hotel-card">
+            <img src="/rara.jpg" alt="Luxury Hotel" />
+            <div className="hotel-info">
+              <h3>Rara Lake</h3>
+              <p className="location">Mugu, Karnali, Nepal</p>
+              <div className="hotel-details">
+                <span className="price">$250-$500 per night</span>
+                <span className="rating">⭐ 4.8</span>
+              </div>
+            </div>
+          </div>
+          <div className="hotel-card">
+            <img src="/turkiye.jpg" alt="Luxury Hotel" />
+            <div className="hotel-info">
+              <h3>Blue Mosque</h3>
+              <p className="location">Istanbul, Turkey</p>
+              <div className="hotel-details">
+                <span className="price">$250-$500 per night</span>
+                <span className="rating">⭐ 4.8</span>
+              </div>
+            </div>
+          </div>
+          <div className="hotel-card">
+            <img src="/brazil.avif" alt="Luxury Hotel" />
+            <div className="hotel-info">
+              <h3>Rio De Janerio</h3>
+              <p className="location">Brazil, South America</p>
               <div className="hotel-details">
                 <span className="price">$250-$500 per night</span>
                 <span className="rating">⭐ 4.8</span>

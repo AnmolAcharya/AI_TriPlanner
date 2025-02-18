@@ -84,7 +84,7 @@
 
 .hotels-container {
     width: 95%;
-    max-width: 1300px;
+    max-width: 800px;
     margin: auto;
     padding: 20px 0;
     text-align: center;
@@ -101,22 +101,25 @@
 .hotels-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    justify-content: center;
+    gap: 2rem;
+    /* justify-content: center; */
     margin-top: 15px;
 }
 
 /* Individual Hotel Card */
 .hotel-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background: white;
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between; /* Ensures text and image have proper spacing */
+    align-items: center; */
+    justify-content:space-around; /* Ensures text and image have proper spacing */
 }
 
 
@@ -126,20 +129,29 @@
 }
 
 /* Hotel Image */
-.hotel-image {
+/* .hotel-image {
     width: 100%;
     height: auto; /* Ensures the full image is displayed */
-    max-height: 200px; /* Adjust this value if needed */
-    object-fit: cover; /* Ensures the full image is visible */
-    border-top-left-radius: 15px;
+    /* max-height: 200px; /* Adjust this value if needed */
+    /* object-fit: cover; /* Ensures the full image is visible */
+    /* border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-    display: block;
-    margin: auto; /* Centers image inside card */
-    background-color: #f8f8f8; /* Optional: Gives a subtle background */
-}
+    display: block; */
+    /* margin: auto; /* Centers image inside card */
+    /* background-color: #f8f8f8; /* Optional: Gives a subtle background */
 
 
-/* Hotel Details */
+    .hotel-image {
+        width: 100%; /* Ensure it fits the width of its container */
+        max-height: 150px; /* Adjust height to prevent excessive stretching */
+        object-fit: contain; /* Ensures the entire image is visible */
+        display: block; /* Remove any extra spacing */
+        margin: auto; /* Center the image if needed */
+        border-radius: 10px; /* Optional: makes the image edges rounded */
+    }
+    
+
+/* Hotel Details over here */
 .hotel-details {
     justify-content: space-around;
     padding: 15px;

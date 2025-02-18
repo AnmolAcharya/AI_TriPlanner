@@ -50,7 +50,6 @@ function ViewTrip() {
             {/* Hotel Recommendations */}
             <Hotels trip={trip} />
 
-            {/* Future components can be added below */}
             {/* - Itinerary */}
 
             <Itinerary trip={trip} />
