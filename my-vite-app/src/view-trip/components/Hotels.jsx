@@ -30,6 +30,8 @@ function Hotels({ trip }) {
                                 <div className="hotel-details">
                                     <h3 className="hotel-name">{item.Name || `Hotel ${index}`}</h3>
                                     <p className="hotel-price"><strong>Price:</strong> {item.Price || "N/A"}</p>
+                                    <p className="hotel-price"><strong> Rating ⭐ :</strong> {item.Rating || "N/A"}</p>
+                                    <p className="hotel-price"><strong> Description:</strong> {item.Description || "N/A"}</p>
                                 </div>
                             </div>
                         );
