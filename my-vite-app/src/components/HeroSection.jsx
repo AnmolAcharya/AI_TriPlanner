@@ -1,44 +1,45 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom'
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // ✅ Navigation for redirection
+import "./LandingPage.css";
 
+function LandingPage() {
+  const [startAnimation, setStartAnimation] = useState(false);
+  const navigate = useNavigate(); // ✅ Navigation hook
 
-function HeroSection() {
-  const [destination, setDestination] = useState('');
-  const [dates, setDates] = useState('');
+  const handleClick = () => {
+    setStartAnimation(true);
+    setTimeout(() => {
+      navigate("/create-trip"); // ✅ Navigate after animation completes
+    }, 3200); // ✅ Extended animation time (6s for smooth effect)
+  };
 
   return (
     <section className="hero-section">
       <div className="hero-content">
         <h1>Discover Your Next Adventure with AI</h1>
         <h2>Personalized Itineraries at Your Fingertips</h2>
-        <p>Your personal trip planner and travel curator, creating custom itineraries tailored to your interests and budget.</p>
+        <p>Your personal trip planner, creating custom itineraries tailored to your interests and budget.</p>
         
-        <div className="search-container">
-          <div className="search-box">
-            {/* <input
-              type="text"
-              placeholder="Where do you want to go?"
-              value={destination}
-              onChange={(e) => setDestination(e.target.value)}
-              className="destination-input"
-            />
-            <input
-              type="text"
-              placeholder="When do you plan to travel?"
-              value={dates}
-              onChange={(e) => setDates(e.target.value)}
-              className="date-input"
-            /> */}
-
-            <Link to="/create-trip">
-              <button className="search-button">Plan My Trip</button>
-            </Link> 
-            {/* Crucial part of rendering into another page or tab screen for the planning of the trip! */}
-          </div>
+        {/* ✅ Only Button Inside Blurred Box */}
+        <div className="blurred-button-container">
+          <button className="plan-trip-btn" onClick={handleClick}>
+            Plan My Trip
+          </button>
         </div>
       </div>
+
+      {/* ✈️ Plane Animation */}
+      {startAnimation && (
+        <div className="plane-container">
+          <img src="/planed_processed.webp" alt="Plane" className="plane" />
+          <div className="dotted-path"></div>
+        </div>
+      )}
     </section>
   );
 }
 
-export default HeroSection;
+export default LandingPage;
+
+
+

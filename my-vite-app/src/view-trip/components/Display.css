@@ -159,6 +159,18 @@
     font-weight: 600;
 }
 
+/* Blurry text for clicking */
+.hotel-click-info {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.5); /* Faded black */
+    text-align: center;
+    margin-top: 8px;
+    filter: blur(0.4px);
+}
+
+
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .hotels-grid {
@@ -259,6 +271,17 @@
 .itinerary-info span {
     font-weight: bold;
     color: #28a745; /* Green for key details */
+}
+
+
+/* Blurry text for clicking */
+.itinerary-click-info {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    margin-top: 8px;
+    filter: blur(0.4px);
 }
 
 /* Responsive Adjustments */

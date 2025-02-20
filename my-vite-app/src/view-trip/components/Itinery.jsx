@@ -5,8 +5,8 @@ function Itinerary({ trip }) {
     console.log("🔍 Full tripData:", trip?.tripData); 
     console.log("📌 Checking itinerary:", trip?.tripData?.Itinerary); 
 
-    // Extract itinerary from Firestore (Ensure correct key name)
-    const itinerary = trip?.tripData?.Itinerary || [];  // 🔹 Fixed Extraction
+    // Extract itinerary from Firestore
+    const itinerary = trip?.tripData?.Itinerary || [];  
 
     return (
         <div className="itinerary-container">
@@ -19,25 +19,38 @@ function Itinerary({ trip }) {
                             Price: ${item["Ticket Pricing"]}, 
                             Travel Time: ${item["Travel Time"]}`);
 
-                        return (
-                            <div key={index} className="itinerary-card">
-                                {/* Itinerary Image */}
-                                <img 
-                                    // src={item["Image URL"] || "/placeholder.jpg"} 
-                                    src = "/places.jpg" 
-                                    alt={item["Place Name"] || `Place ${index}`} 
-                                    className="itinerary-image"
-                                />
+                        // ✅ Construct Google Maps Link
+                        const googleMapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item["Place Name"])}`;
 
-                                {/* Itinerary Details */}
-                                <div className="itinerary-details">
-                                    <h3 className="itinerary-name">{item["Place Name"] || `Place ${index}`}</h3>
-                                    <p className="itinerary-info"><span>Ticket Pricing:</span> {item["Ticket Pricing"] || "Free"}</p>
-                                    <p className="itinerary-info"><span>Travel Time:</span> {item["Travel Time"] || "N/A"}</p>
-                                    <p className="itinerary-info"><span>Rating:</span> {item["Rating"] || "N/A"}</p>
-                                    <p className="itinerary-info"><span>Details:</span> {item["Details"] || "No details available."}</p>
+                        return (
+                            <a 
+                                key={index}
+                                href={googleMapsLink} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="itinerary-link"
+                            >
+                                <div className="itinerary-card">
+                                    {/* Itinerary Image */}
+                                    <img 
+                                        src="/places.jpg" 
+                                        alt={item["Place Name"] || `Place ${index}`} 
+                                        className="itinerary-image"
+                                    />
+
+                                    {/* Itinerary Details */}
+                                    <div className="itinerary-details">
+                                        <h3 className="itinerary-name">{item["Place Name"] || `Place ${index}`}</h3>
+                                        <p className="itinerary-info"><span>Ticket Pricing:</span> {item["Ticket Pricing"] || "Free"}</p>
+                                        <p className="itinerary-info"><span>Travel Time:</span> {item["Travel Time"] || "N/A"}</p>
+                                        <p className="itinerary-info"><span>Rating:</span> {item["Rating"] || "N/A"}</p>
+                                        <p className="itinerary-info"><span>Details:</span> {item["Details"] || "No details available."}</p>
+
+                                            {/* Blurry Click Info */}
+                                            <p className="itinerary-click-info">Click for more details!!</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         );
                     })
                 ) : (

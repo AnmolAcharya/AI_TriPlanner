@@ -61,12 +61,12 @@ body {
 
 /* Navbar Styles */
 
-
+/* ✅ Navbar Styles */
 .navbar {
   display: flex;
-  justify-content: space-between; /* Pushes logo to left, buttons to right */
+  justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1rem 3%;
   background-color: #ffffff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: fixed;
@@ -75,6 +75,70 @@ body {
   left: 0;
   z-index: 1000;
 }
+
+/* ✅ Fix Logo Alignment & Size */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between logo and text */
+}
+
+
+.logo-img {
+  height: 50px; /* Bigger logo */
+  width: auto;
+}
+
+.logo-text {
+  font-size: 1.8rem; /* Medium size */
+  font-weight: bold;
+  color: #333;
+}
+
+/* ✅ Navbar Links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* ✅ User Info */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* ✅ Fix Navbar Buttons */
+.signin-btn,
+.logout-btn {
+  padding: 10px 15px;
+  background-color: #4A90E2;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.logout-btn {
+  background-color: #ff4b4b;
+}
+
+.signin-btn:hover {
+  background-color: #357ABD;
+}
+
+.logout-btn:hover {
+  background-color: #cc3c3c;
+}
+
 
 /* Ensure navbar content is centered */
 .navbar-container {
@@ -93,7 +157,7 @@ body {
 
 /* Other elements */
 /* ✅ Logo Styling */
-.logo {
+/* .logo {
   font-size: 1.5rem;
   font-weight: bold;
   color: #333;
@@ -103,16 +167,16 @@ body {
 
 .logo img {
   height: 40px; /* not working as of now need to fix the logo parts*/ 
-  margin-right: 10px;
-}
-
+  /* margin-right: 10px; */
+/* } */
+/* 
 .nav-links {
   display: flex;
   align-items: center;
   gap: 20px;
-}
+}  */
 
-.signin-btn {
+/* .signin-btn {
   padding: 10px 15px;
   background-color: #4A90E2;
   color: white;
@@ -120,9 +184,9 @@ body {
   cursor: pointer;
   border-radius: 5px;
   font-weight: bold;
-}
+} */
 
-.signin-btn:hover {
+/* .signin-btn:hover {
   background-color: #357ABD;
 }
 
@@ -149,7 +213,7 @@ body {
 
 .logout-btn:hover {
   background-color: #cc3c3c;
-}
+} */
 
 
 
@@ -285,6 +349,7 @@ body {
 }
 
 /* Recommendations Section */
+/* Recommendations Section */
 .recommendations-section {
   padding: 4rem 5%;
 }
@@ -353,6 +418,7 @@ body {
   .hero-content h1 {
     font-size: 2.5rem;
   }
+  
   
   .hero-content h2 {
     font-size: 1.5rem;

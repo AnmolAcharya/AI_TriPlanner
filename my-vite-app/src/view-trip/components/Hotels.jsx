@@ -5,8 +5,8 @@ function Hotels({ trip }) {
     console.log("🔍 Full tripData:", trip?.tripData); 
     console.log("🏨 Checking hotels:", trip?.tripData?.Hotels); 
 
-    // Extract hotels from the new Firestore format
-    const hotels = trip?.tripData?.Hotels || [];  // 🔹 Fixed Extraction
+    // Extract hotels from Firestore format
+    const hotels = trip?.tripData?.Hotels || [];  
 
     return (
         <div className="hotels-container">
@@ -18,25 +18,36 @@ function Hotels({ trip }) {
                         console.log(`🏨 Hotel ${index} Name: ${item.Name}, Price: ${item.Price}`);
 
                         return (
-                            <div key={index} className="hotel-card">
-                                {/* Common Hotel Image */}
-                                <img 
-                                    src="/hotel.avif"  
-                                    alt={`Hotel ${index}`} 
-                                    className="hotel-image"
-                                />
+                            <a 
+                                key={index}
+                                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.Name + "," + item.Address)}`} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="hotel-link"
+                            >
+                                <div className="hotel-card">
+                                    {/* Hotel Image */}
+                                    <img 
+                                        src="/hotel.avif"  
+                                        alt={`Hotel ${index}`} 
+                                        className="hotel-image"
+                                    />
 
-                                {/* Hotel Details */}
-                                <div className="hotel-details">
-                                    <h3 className="hotel-name">{item.Name || `Hotel ${index}`}</h3>
-                                    <p className="hotel-price"><strong>Price:</strong> {item.Price || "N/A"}</p>
-                                    <p className="hotel-price"><strong> Rating ⭐ :</strong> {item.Rating || "N/A"}</p>
-                                    <p className="hotel-price"><strong> Description:</strong> {item.Description || "N/A"}</p>
+                                    {/* Hotel Details */}
+                                    <div className="hotel-details">
+                                        <h3 className="hotel-name">{item.Name || `Hotel ${index}`}</h3>
+                                        <p className="hotel-price"><strong>Price:</strong> {item.Price || "N/A"}</p>
+                                        <p className="hotel-price"><strong> Rating ⭐ :</strong> {item.Rating || "N/A"}</p>
+                                        <p className="hotel-description">{item.Description || "N/A"}</p>
+
+                                            {/* Blurry Click Info */}
+                                            <p className="hotel-click-info">Click for more details!!</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         );
                     })
-                ) : (
+                ) : ( 
                     <p>No hotels found.</p>
                 )}
             </div>
@@ -45,6 +56,7 @@ function Hotels({ trip }) {
 }
 
 export default Hotels;
+
 
 
 
