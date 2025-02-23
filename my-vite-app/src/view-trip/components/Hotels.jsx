@@ -26,9 +26,9 @@ function Hotels({ trip }) {
                                 className="hotel-link"
                             >
                                 <div className="hotel-card">
-                                    {/* Hotel Image */}
+                                    {/* Hotel Image (Uses Image URL from Firestore) */}
                                     <img 
-                                        src="/hotel.avif"  
+                                        src={item.ImageURL ? item.ImageURL : "/hotel.avif"}  
                                         alt={`Hotel ${index}`} 
                                         className="hotel-image"
                                     />
@@ -40,8 +40,8 @@ function Hotels({ trip }) {
                                         <p className="hotel-price"><strong> Rating ⭐ :</strong> {item.Rating || "N/A"}</p>
                                         <p className="hotel-description">{item.Description || "N/A"}</p>
 
-                                            {/* Blurry Click Info */}
-                                            <p className="hotel-click-info">Click for more details!!</p>
+                                        {/* Blurry Click Info */}
+                                        <p className="hotel-click-info">Click for more details!!</p>
                                     </div>
                                 </div>
                             </a>
@@ -56,15 +56,6 @@ function Hotels({ trip }) {
 }
 
 export default Hotels;
-
-
-
-
-
-
-
-
-
 
 
 
