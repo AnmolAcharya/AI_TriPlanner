@@ -5,7 +5,7 @@ function Hotels({ trip }) {
     console.log("🔍 Full tripData:", trip?.tripData); 
     console.log("🏨 Checking hotels:", trip?.tripData?.Hotels); 
 
-    // Extract hotels from Firestore format
+    // Extract hotels from Firestore format >
     const hotels = trip?.tripData?.Hotels || [];  
 
     return (
