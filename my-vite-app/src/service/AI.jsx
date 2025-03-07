@@ -20,7 +20,7 @@ const generationConfig = {
   responseMimeType: "application/json",
 };
 
-// 🔹 Function to generate a formatted prompt with user input
+// 🔹 Function to generate a formatted prompt with user input <--> 
 export const generatePrompt = (formData) => {
   if (!formData?.destination || !formData?.noOfDays || !formData?.travelWith || !formData?.budget) {
     console.error("Missing required trip information.");

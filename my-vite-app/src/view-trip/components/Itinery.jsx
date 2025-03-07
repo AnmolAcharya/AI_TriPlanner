@@ -63,6 +63,12 @@ function Itinerary({ trip }) {
 
 export default Itinerary;
 
+// Todos from tomorrow: Coming soon>> 
+/// Host MVP 
+/// Chnage google auth button to be fixed at the right end >>
+/// styling and keeping or letting go of animations 
+/// Hosting MVP and making news about it plus update links 
+
 
 
 //////////////////////Older css
