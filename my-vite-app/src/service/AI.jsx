@@ -2,7 +2,7 @@ import { useState } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { AI_PROMPT } from "./AIPrompt";
 import { doc, setDoc } from "firebase/firestore";
-import { db } from "./FirebaseConfig.jsx"; // ✅ Ensure `db` is imported
+import { db } from "./FirebaseConfig.jsx"; // verifying if the `db` is imported
 import { useNavigate } from "react-router-dom";
 
 const apiKey = import.meta.env.VITE_GOOGLE_GEMINI_AI_API_KEY;
@@ -20,7 +20,7 @@ const generationConfig = {
   responseMimeType: "application/json",
 };
 
-// 🔹 Function to generate a formatted prompt with user input <--> 
+// Function to generate a formatted prompt with user input <--> 
 export const generatePrompt = (formData) => {
   if (!formData?.destination || !formData?.noOfDays || !formData?.travelWith || !formData?.budget) {
     console.error("Missing required trip information.");
@@ -34,7 +34,7 @@ export const generatePrompt = (formData) => {
     .replace("{budget}", formData.budget);
 };
 
-// 🔹 Function to send the generated prompt to the AI model
+//  Function to send the generated prompt to the AI model
 export const getTripPlan = async (formData, navigate) => {
   const finalPrompt = generatePrompt(formData);
   
@@ -55,7 +55,7 @@ export const getTripPlan = async (formData, navigate) => {
 
     console.log("🤖 AI Response: ", responseText);
 
-    // ✅ Save the AI-generated trip plan in Firebase
+    // Saves the AI-generated trip plan in Firebase
     await SaveAiTrip(formData, responseText, navigate);
 
     return responseText;
@@ -65,7 +65,7 @@ export const getTripPlan = async (formData, navigate) => {
   }
 };
 
-// 🔹 Function to Save AI-generated Trip to Firebase
+// Function to Save AI-generated Trip to Firebase
 const SaveAiTrip = async (formData, TripData, navigate) => {
   try {
     const user = JSON.parse(localStorage.getItem("user"));

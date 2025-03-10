@@ -1,4 +1,3 @@
-////////////////////older code implementation
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -10,7 +9,7 @@ import Itinerary from "./components/Itinery";
 
 function ViewTrip() {
     const { tripId } = useParams();
-    const [trip, setTrip] = useState(null); // 🔹 Initialize as null (not an array)
+    const [trip, setTrip] = useState(null); // Initialized it as null (not an array)
 
     useEffect(() => {
         const fetchTripData = async () => {
@@ -26,7 +25,7 @@ function ViewTrip() {
             if (docSnap.exists()) {
                 const data = docSnap.data();
                 console.log("✅ Successfully fetched tripData:", data);
-                setTrip(data); // 🔹 No need to parse JSON anymore!
+                setTrip(data); 
             } else {
                 console.log("❌ No such document in Firestore");
                 toast("No trip found!");
@@ -60,7 +59,6 @@ function ViewTrip() {
 }
 
 export default ViewTrip;
-
 
 
 //as the dynamic route syntax did not work out directly in the folder 

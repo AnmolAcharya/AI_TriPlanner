@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; // ✅ Navigation for redirection
+import { useNavigate } from "react-router-dom"; // Navigation for redirection
 import "./LandingPage.css";
 
 function LandingPage() {
   const [startAnimation, setStartAnimation] = useState(false);
-  const navigate = useNavigate(); // ✅ Navigation hook
+  const navigate = useNavigate(); // Navigation hook
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // ✅ Move details INSIDE the function scope
+  // Move details INSIDE the function scope
   const details = [
     "Get tailored hotel recommendations based on your preferences.",
     "Explore top-rated attractions and hidden gems curated for you.",
@@ -26,8 +26,8 @@ function LandingPage() {
   const handleClick = () => {
     setStartAnimation(true);
     setTimeout(() => {
-      navigate("/create-trip"); // ✅ Navigate after animation completes
-    }, 3200); // ✅ Extended animation time (6s for smooth effect)
+      navigate("/create-trip"); // Navigate after animation completes
+    }, 3200); // Extended animation time (6s for smooth effect)
   };
 
   return (
@@ -36,12 +36,12 @@ function LandingPage() {
         <h1>Your AI Travel Companion</h1>
         <h2>Discover Hotels and Attractions Handpicked by AI</h2>
         
-        {/* ✅ Rotating details animation */}
+        {/* Rotating details animation */}
         <div className="rotating-details-container">
           <p className="rotating-details">{details[currentIndex]}</p>
         </div>
         
-        {/* ✅ Only Button Inside Blurred Box */}
+        {/* Only Button Inside Blurred Box */}
         <div className="blurred-button-container">
           <button className="plan-trip-btn" onClick={handleClick}>
             Plan My Trip
@@ -49,7 +49,7 @@ function LandingPage() {
         </div>
       </div>
 
-      {/* ✈️ Plane Animation */}
+      {/* Plane Animation -- full on loops */}
       {startAnimation && (
         <div className="plane-container">
           <img src="/planed_processed.webp" alt="Plane" className="plane" />
