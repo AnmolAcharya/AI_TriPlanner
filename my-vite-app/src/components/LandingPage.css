@@ -19,7 +19,52 @@
   .hero-content {
     max-width: 900px;
     z-index: 2;
+    color: #ffa500;
   }
+
+  /* 🌟 Hero Content - h1 and h2 Styling */
+.hero-content h1 {
+  color: wheat; /* Fresh Cool Orange (or change to any other color you like) */
+  font-size: 2.7rem; /* Adjust font size if needed */
+  margin-bottom: 10px;
+  transition: color 0.3s ease-in-out;
+}
+
+.hero-content h2 {
+  color: lightblue; /* Bright Orange (or change to any other color you like) */
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Optional: Hover effect for h1 and h2 */
+.hero-content h1:hover {
+  color: #FF7F50; /* Coral on hover */
+}
+
+.hero-content h2:hover {
+  color: #FFD700; /* Gold on hover */
+}
+
+  /* 🎨 Rotating Details Container */
+  .rotating-details-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* 🎨 Rotating Details Customization */
+  .rotating-details {
+  color: wheat !important; /* Change this to your desired color (e.g., gold) */
+  font-size: 1.3rem !important;
+  margin-bottom: 20px;
+  transition: opacity 0.5s ease-in-out, color 0.5s ease-in-out
+}
+
+/* Optional: Hover effect for rotating details */
+  .rotating-details:hover {
+  color: #FF6347 !important; /* Change to a different color on hover (e.g., tomato) */
+}
+
   
   /* ✅ Blurred Box Only for the Button */
   .blurred-button-container {

@@ -38,7 +38,7 @@ function CreateTrip() {
       const decodedUser = jwtDecode(credentialResponse.credential);
       setUser(decodedUser);
       localStorage.setItem("user", JSON.stringify(decodedUser)); // ✅ Save user
-      toast.success(`Welcome, ${decodedUser.name}! 🎉`);
+      toast.success(`Welcome, Click, Generate Trip to get started Now! 🎉 ${decodedUser.name}!`);
     },
     onError: () => {
       toast.error("Google Login Failed! ❌");
